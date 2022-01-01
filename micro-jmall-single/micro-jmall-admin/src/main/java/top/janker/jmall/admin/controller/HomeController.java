@@ -1,6 +1,5 @@
 package top.janker.jmall.admin.controller;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.janker.jmall.admin.model.TestModel;
+import top.janker.micro.common.sentinel.RateLimit;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,7 +29,7 @@ public class HomeController {
     @ApiOperation(value = "测试接口")
     @SuppressWarnings("unchecked")
     @GetMapping("/{testId}")
-    @SentinelResource(value = "testModelList")
+    @RateLimit(value = "testModelList",param = "#testId")
     public List<TestModel> testModelList(@PathVariable String testId) {
         List<TestModel> result = new ArrayList<>();
         return result;

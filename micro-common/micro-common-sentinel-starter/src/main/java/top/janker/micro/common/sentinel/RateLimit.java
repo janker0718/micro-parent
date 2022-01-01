@@ -1,6 +1,8 @@
 package top.janker.micro.common.sentinel;
 
 
+import com.alibaba.csp.sentinel.EntryType;
+
 import java.lang.annotation.*;
 
 /**
@@ -14,5 +16,10 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface RateLimit {
-    int resourceType() default 0;
+
+    String value();
+
+    String param();
+
+    EntryType entryType() default EntryType.IN;
 }

@@ -66,6 +66,18 @@
             <artifactId>micro-common-sentinel-starter</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>top.janker</groupId>
+            <artifactId>micro-redis-spring-boot-starter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.janker</groupId>
+            <artifactId>micro-common-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 <!--    <build>-->

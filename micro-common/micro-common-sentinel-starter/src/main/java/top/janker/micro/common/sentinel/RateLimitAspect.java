@@ -13,6 +13,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.expression.AnnotatedElementKey;
 import org.springframework.expression.EvaluationContext;
@@ -31,6 +32,8 @@ import java.lang.reflect.Method;
 @Aspect
 @Slf4j
 @EnableAspectJAutoProxy
+@Component
+@ConditionalOnProperty(prefix = "micro",name = "sentinel.enable",havingValue = "true")
 public class RateLimitAspect {
 
     private RateLimitExpressionEvaluator<String> evaluator = new RateLimitExpressionEvaluator<>();
@@ -60,6 +63,7 @@ public class RateLimitAspect {
             Object result = pjp.proceed();
             return result;
         } catch (BlockException ex) {
+            //抛出异常
             throw ex;
         } catch (Throwable ex) {
 

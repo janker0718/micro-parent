@@ -28,4 +28,8 @@ micro:
     description: 管理后台接口文档
     version: 1.0
     base-package: top.janker.jmall.admin.controller
+  security:
+    ignored:
+      urls: #安全路径白名单
+        - /swagger-ui.html
 

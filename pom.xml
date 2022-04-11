@@ -159,6 +159,11 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>top.janker</groupId>
+                <artifactId>micro-jmall-orm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

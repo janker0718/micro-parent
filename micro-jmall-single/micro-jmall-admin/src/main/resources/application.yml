@@ -4,23 +4,27 @@ server:
 spring:
   application:
     name: jmall-admin
-  cloud:
-    sentinel:
-      transport:
-        dashboard: localhost:8080
-      datasource:
-        ds:
-          nacos:
-            ### nacos连接地址
-            server-addr: localhost:8848
-            ## nacos连接的分组
-            group-id: SENTINAL_GROUP
-            ###路由存储规则
-            rule-type: flow
-            ### 读取配置文件的 data-id
-            data-id: jmall-admin-sentinal
-            ###  读取培训文件类型为json
-            data-type: json
+  datasource:
+    url: jdbc:mysql://localhost:3306/jmall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+#  cloud:
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8080
+#      datasource:
+#        ds:
+#          nacos:
+#            ### nacos连接地址
+#            server-addr: localhost:8848
+#            ## nacos连接的分组
+#            group-id: SENTINAL_GROUP
+#            ###路由存储规则
+#            rule-type: flow
+#            ### 读取配置文件的 data-id
+#            data-id: jmall-admin-sentinal
+#            ###  读取培训文件类型为json
+#            data-type: json
 micro:
   swagger:
     enabled: true
@@ -32,4 +36,19 @@ micro:
     ignored:
       urls: #安全路径白名单
         - /swagger-ui.html
+    tokenHeader: Authorization
+    tokenHead: 'Bearer '
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mall-admin-secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: 'Bearer '  #JWT负载中拿到开头
+#logging:
+#  level:
+#    root: debug
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:top/**/mapper/*.xml
 

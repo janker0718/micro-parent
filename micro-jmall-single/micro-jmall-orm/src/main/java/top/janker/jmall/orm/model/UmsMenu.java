@@ -20,6 +20,9 @@ public class UmsMenu implements Serializable {
     @ApiModelProperty(value = "排序")
     private Integer sort;
 
+    @ApiModelProperty(value = "标题")
+    private String title;
+
     @ApiModelProperty(value = "菜单名称")
     private String name;
 
@@ -71,6 +74,14 @@ public class UmsMenu implements Serializable {
         this.sort = sort;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getName() {
         return name;
     }
@@ -106,6 +117,7 @@ public class UmsMenu implements Serializable {
         sb.append(", icon=").append(icon);
         sb.append(", level=").append(level);
         sb.append(", sort=").append(sort);
+        sb.append(", title=").append(title);
         sb.append(", name=").append(name);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);

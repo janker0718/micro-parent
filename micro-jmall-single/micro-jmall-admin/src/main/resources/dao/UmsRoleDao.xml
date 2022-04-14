@@ -11,8 +11,7 @@
             m.level level,
             m.sort sort,
             m.name name,
-            m.icon icon,
-            m.hidden hidden
+            m.icon icon
         FROM
             ums_admin_role_relation arr
                 LEFT JOIN ums_role r ON arr.role_id = r.id

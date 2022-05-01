@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
  * Github: https://github.com/janker0718
  */
 @Controller
-@Api(tags = "UmsAdminController", description = "后台用户管理")
+@Api(tags = "后台用户管理接口", description = "后台用户管理")
 @RequestMapping("/admin")
 public class UmsAdminController {
     @Value("${micro.security.tokenHeader}")

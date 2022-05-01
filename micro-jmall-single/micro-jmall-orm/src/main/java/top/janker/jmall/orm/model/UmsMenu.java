@@ -32,6 +32,8 @@ public class UmsMenu implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 
+    private Integer hidden;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -106,6 +108,14 @@ public class UmsMenu implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public Integer getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Integer hidden) {
+        this.hidden = hidden;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -121,6 +131,7 @@ public class UmsMenu implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
+        sb.append(", hidden=").append(hidden);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

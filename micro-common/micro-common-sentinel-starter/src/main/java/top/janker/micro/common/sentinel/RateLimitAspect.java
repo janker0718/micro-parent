@@ -34,7 +34,7 @@ import java.lang.reflect.Method;
 @EnableAspectJAutoProxy
 @Component
 @ConditionalOnProperty(prefix = "micro",name = "sentinel.enable",havingValue = "true")
-public class RateLimitAspect {
+public class RateLimitAspect extends AbstractRateLimitSupport {
 
     private RateLimitExpressionEvaluator<String> evaluator = new RateLimitExpressionEvaluator<>();
 

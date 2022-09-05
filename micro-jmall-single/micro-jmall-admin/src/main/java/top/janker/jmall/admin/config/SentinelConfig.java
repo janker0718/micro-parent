@@ -14,8 +14,8 @@ import top.janker.micro.common.sentinel.RateLimitAspect;
 @Configuration
 public class SentinelConfig {
 
-    @Bean
-    RateLimitAspect rateLimitAspect(){
-        return new RateLimitAspect();
-    }
+//    @Bean
+//    RateLimitAspect rateLimitAspect(){
+//        return new RateLimitAspect();
+//    }
 }
